@@ -160,12 +160,9 @@
 [计划内容]
 ```
 
-等待用户确认后，第二步输出完整改写结果，**必须包裹在 Strapi Markdown 代码块中**（用 ` ```markdown ` 开头、` ``` ` 结尾包裹），确保用户可以直接复制粘贴到 Strapi CMS：
+等待用户确认后，第二步**必须将改写结果写入文件并复制到系统剪贴板**，方便用户直接 Cmd+V 粘贴到 Strapi CMS。
 
-````
-## 改写正文
-
-```markdown
-[完整改写结果——包含所有 Markdown 标记、图片、链接、自定义组件]
-```
-````
+具体操作：
+1. 用 Write 工具将完整改写结果（纯 Markdown，不加任何包裹）写入 `/tmp/localized-output.md`
+2. 用 Bash 工具执行 `pbcopy < /tmp/localized-output.md`
+3. 告知用户"已复制到剪贴板，直接 Cmd+V 粘贴到 Strapi 即可"
